@@ -49,7 +49,7 @@ public class Cylinder extends Circle{
     // Task 4. add code for method getVolume()
     // make use of superclass' getArea() method
     public double getVolume() {
-        return getArea() * height;
+        return super.getArea() * height;
     }
 
  
@@ -60,5 +60,22 @@ public class Cylinder extends Circle{
         return "Cylinder [" + super.toString() + ",height=" + String.format("%.2f", height) + "]";
     }
 
+    public double getBaseArea() {
+        return super.getArea();
+    }
+
+
+    // Area for Cylinder 
+    @Override
+    public double getArea(){
+        
+        double baseArea = super.getArea();
+
+        double radius = getRadius();
+
+        double circumference = 2 * Math.PI * radius;
+
+        return (2 * baseArea) + (circumference * height);
+    }
     
  }
